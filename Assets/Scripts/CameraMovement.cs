@@ -36,7 +36,7 @@ public class CameraMovement : MonoBehaviour
     {
         //save position of mouse in world space when drag starts (first time clicked)
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             _dragOrigin = _cam.ScreenToWorldPoint(Input.mousePosition);
         }
@@ -44,11 +44,11 @@ public class CameraMovement : MonoBehaviour
 
         //calculate distance between drag origin and new position if it is still held down
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             Vector3 _diff = _dragOrigin - _cam.ScreenToWorldPoint(Input.mousePosition);
 
-            print("Origin" + _dragOrigin + "newPosition" + _cam.ScreenToWorldPoint(Input.mousePosition) + " =difference" + _diff); ;
+            print("Origin" + _dragOrigin + "newPosition" + _cam.ScreenToWorldPoint(Input.mousePosition) + " =difference" + _diff); // Give Console output for the updation for Distance value.
 
             //move the camera by that distance
             _cam.transform.position += _diff;
